@@ -4,6 +4,7 @@ import {useAddress, useContract, useMetamask, useCoinbaseWallet} from "@thirdweb
 export default function Home() {
   const address = useAddress();
   const connectWithMetamask = useMetamask();
+  const coinbaseWallet = useCoinbaseWallet();
   const { contract : editionDrop, isLoading, isError} = useContract(
     process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,"edition-drop"
   );
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <>
       <button className='text-amber-200 font-bold' onClick={connectWithMetamask} >Connect Wallet</button>
+      <button onClick={coinbaseWallet}>Connect with Coinbase</button>
       <button onClick={mintingNFT}>Minting NFT</button>
     </>
   )
