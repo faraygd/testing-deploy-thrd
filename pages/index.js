@@ -19,9 +19,9 @@ export default function Home() {
   return (
     <>
       <div className="flex text-center justify-center my-20">
-        <button className='font-bold border-line bg-red-300 w-40 h-10' onClick={connectWithMetamask} >Connect Wallet</button>
+        { address ? <button className='font-bold border-line bg-red-300 w-40 h-10 ml-20'>{address?.substring(0,5)}...{address?.substring(address.length, address.length - 5)}</button> : <button className='font-bold border-line bg-red-300 w-40 h-10' onClick={connectWithMetamask} >Connect Wallet</button> }
       <br></br>
-        <button className='font-bold border-line bg-red-300 w-50 h-10 ml-20' onClick={coinbaseWallet}>Connect with Coinbase</button>
+      { address ? <button className='font-bold border-line bg-red-300 w-40 h-10 ml-20'>{address?.substring(0,5)}...{address?.substring(address.length, address.length - 5)}</button> : <button className='font-bold border-line bg-red-300 w-40 h-10' onClick={coinbaseWallet} >Connect Wallet</button> }
       <br></br>
         <button className='font-bold border-line bg-red-300 w-40 h-10 ml-20'onClick={mintingNFT}>Minting NFT</button>
       </div>
