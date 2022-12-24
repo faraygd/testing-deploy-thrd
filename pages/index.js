@@ -18,9 +18,14 @@ export default function Home() {
   //if(isError){}
   return (
     <>
-      <button className='text-amber-200 font-bold' onClick={connectWithMetamask} >Connect Wallet</button>
-      <button onClick={coinbaseWallet}>Connect with Coinbase</button>
-      <button onClick={mintingNFT}>Minting NFT</button>
+      <div className="flex text-center justify-center my-20">
+        <button className='font-bold border-line bg-red-300 w-40 h-10' onClick={connectWithMetamask} >Connect Wallet</button>
+      <br></br>
+        <button className='font-bold border-line bg-red-300 w-50 h-10 ml-20' onClick={coinbaseWallet}>Connect with Coinbase</button>
+      <br></br>
+        <button className='font-bold border-line bg-red-300 w-40 h-10 ml-20'onClick={mintingNFT}>Minting NFT</button>
+      </div>
+
     </>
   )
 }
