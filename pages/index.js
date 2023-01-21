@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       <ToastContainer
-        position="top-center"
+        position="top-left"
         autoClose={5000}
         hideProgressBar={false}
         reverseOrder={false}
