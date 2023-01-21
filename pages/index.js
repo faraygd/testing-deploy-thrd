@@ -18,17 +18,18 @@ export default function Home() {
     'edition-drop',
   )
   console.log(editionDrop)
+  async function verifyTicket() {}
   async function mintingNFT() {
-    const loading = toast.loading("Process Minting");
+    const loading = toast.loading('Process Minting')
     if (!address) return
     try {
       await editionDrop.erc1155.claimTo(address, 2, 1)
-      toast.success("Success Minting")
+      toast.success('Success Minting')
     } catch (err) {
       console.log(err)
-      toast.error("Minting Error");
+      toast.error('Minting Error')
     } finally {
-      toast.dismiss(loading);
+      toast.dismiss(loading)
     }
   }
   // Condition
@@ -37,11 +38,11 @@ export default function Home() {
   return (
     <>
       <ToastContainer
-        position="top-left"
+        position="top-center"
         autoClose={5000}
         hideProgressBar={false}
         reverseOrder={false}
-        theme="dark"
+        theme="white"
       />
       <div className="flex text-center justify-center my-20">
         {address ? (
@@ -79,7 +80,12 @@ export default function Home() {
           Minting NFT
         </button>
         <br></br>
-        <button onClick={connectWallet}>Connect Wallet</button>
+        <button
+          className="font-bold border-line bg-red-300 w-40 h-10 ml-20"
+          onClick={verifyTicket}
+        >
+          Verify Ticket
+        </button>
       </div>
     </>
   )
