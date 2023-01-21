@@ -18,16 +18,17 @@ export default function Home() {
     'edition-drop',
   )
   console.log(editionDrop)
-
   async function mintingNFT() {
+    const loading = toast.loading("Process Minting");
     if (!address) return
     try {
-      const tx = await editionDrop.erc1155.claimTo(address, 2, 1)
+      await editionDrop.erc1155.claimTo(address, 2, 1)
       toast.success("Success Minting")
     } catch (err) {
       console.log(err)
       toast.error("Minting Error");
     } finally {
+      toast.dismiss(loading);
     }
   }
   // Condition
@@ -82,4 +83,10 @@ export default function Home() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  }
 }
